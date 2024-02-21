@@ -11,6 +11,9 @@ dependencies:
   '@rspack/core':
     specifier: 0.5.4
     version: 0.5.4(@swc/helpers@0.5.3)
+  envinfo:
+    specifier: ^7.11.1
+    version: 7.11.1
   html-webpack-plugin:
     specifier: ^5.5.3
     version: 5.6.0(@rspack/core@0.5.4)(webpack@5.90.2)

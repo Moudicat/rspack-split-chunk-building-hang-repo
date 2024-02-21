@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all build:* --sequential --print-name",
-    "build:rspack": "RSPACK=1 pnpm rspack -c ./config.mjs",
+    "build:rspack": "RSPACK=1 COLORBT_SHOW_HIDDEN=1 RUST_BACKTRACE=full pnpm rspack -c ./config.mjs",
     "build:rsbuild": "rsbuild build",
     "build:webpack": "WEBPACK=1 pnpm webpack -c ./config.mjs",
     "dev:rspack": "RSPACK=1 rspack dev -c ./config.mjs",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@rspack/cli": "0.5.4",
     "@rspack/core": "0.5.4",
+    "envinfo": "^7.11.1",
     "html-webpack-plugin": "^5.5.3",
     "vant": "^4.8.4",
     "vue": "^3.4.19",

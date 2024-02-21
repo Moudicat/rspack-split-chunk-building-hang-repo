@@ -1,5 +1,5 @@
 import path from "path";
-import {rspack} from '@rspack/core';
+import fs from 'fs';
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { VueLoaderPlugin } from "vue-loader";
@@ -38,10 +38,14 @@ const config = {
 		splitChunks: {
 			chunks: 'all',
 			minSize: 0,
-			maxSize: 100000,
+			// maxSize: 100000,
 		}
 	},
-  plugins: [new VueLoaderPlugin(), isRunningRspack ? new rspack.HtmlRspackPlugin() : new HtmlWebpackPlugin()],
+  plugins: [new VueLoaderPlugin(), new HtmlWebpackPlugin({
+		template: path.resolve(fs.realpathSync(process.cwd()), 'public/index.html'),
+		inject: 'body',
+		minify: false,
+	})],
   output: {
     clean: true,
     path: isRunningWebpack
